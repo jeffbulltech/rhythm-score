@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rhythm Score</title>
+</head>
+<body>
+    <h2>{{ rhythm_statement }}</h2>
+    <form method="POST">
+        <label for="type">Type:</label>
+        <select name="type" id="type">
+            <option value="work">Work</option>
+            <option value="life">Life</option>
+        </select>
+        <label for="duration">Duration (hours):</label>
+        <input type="number" id="duration" name="duration" min="0">
+        <input type="submit" value="Submit">
+    </form>
+    <form method="DELETE">
+        <input type="submit" value="Clear Entries">
+    </form>
+    <h2>Rhythm Score: {{ rhythm_score }}%</h2>
+    <ul>
+        {% for activity in activities %}
+            <li>{{ activity.type }}: {{ activity.duration }} hours</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
